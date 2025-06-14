@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr White</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enter_player_number.css">
+    <link rel="stylesheet" href="css/enter_names.css">
+    <link rel="stylesheet" href="css/ongoing_game.css">
+
 </head>
 <body>
 
     <div class="background">
 
         <div class="enter_player_number">
-            <input type="number">
+            <form id="numberForm">
+                <input id="enter_num" type="number" name="playerNumber" placeholder="Zahl eingeben" required>
+            </form>
         </div>
         
-        <div class="enter_palyer_names">
-            
+        <div class="enter_names" style="display: none;">
+            <div id="imagesContainer"></div>
         </div>
         
         
-        <div class="ongoing_game">
+        <div class="ongoing_game" style="display: none;">
             
         </div>
 

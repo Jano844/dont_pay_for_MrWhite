@@ -1,0 +1,23 @@
+
+
+.enter_player_number {
+  height: 100vh; /* ganzer Bildschirm */
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+}
+
+#enter_num {
+  font-size: 20px;       /* groß genug für kein Zoom */
+  padding: 12px 16px;
+  width: 200px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#enter_num:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
