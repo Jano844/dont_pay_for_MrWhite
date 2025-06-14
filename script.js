@@ -18,19 +18,17 @@ function handleNumberSubmit(event) {
 }
 
 function showPlayerImages(number) {
-  console.log("HelloWorld")
   const container = document.getElementById('imagesContainer');
-  container.innerHTML = ''; // vorherigen Inhalt löschen
+  container.innerHTML = '';
 
   const count = parseInt(number, 10);
-  const imageUrl = 'css/assets/player_icon.png'; // Pfad zum Bild anpassen
+  const imageUrl = 'css/assets/player_icon.png';
 
   for (let i = 0; i < count; i++) {
     const img = document.createElement('img');
     img.src = imageUrl;
     img.alt = 'Player Icon';
-    img.style.width = '50px';
-    img.style.margin = '5px';
+    
     container.appendChild(img);
   }
 }
