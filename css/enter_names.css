@@ -3,12 +3,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 0 10%;
+  padding: 20% 10% 0 10%;
   box-sizing: border-box;
 }
 
 #imagesContainer img {
-  width: calc((100% - 20% - 20px) / 5); /* passt exakt 3 Bilder in Container */
+  width: calc((100% - 20% - 20px) / 3); /* passt exakt 3 Bilder in Container */
   aspect-ratio: 1 / 1;                  /* erzwingt quadratisches Layout */
   object-fit: cover;
   border-radius: 8px;
