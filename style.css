@@ -1,0 +1,24 @@
+/* Basis für mobile Web-App */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Volle Bildschirmhöhe + flexibles Layout */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+/* Optional: Responsives Verhalten verbessern */
+@media screen and (max-width: 768px) {
+  .background {
+    padding: 0.5rem;
+  }
+}
