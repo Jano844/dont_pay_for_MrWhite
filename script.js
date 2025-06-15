@@ -191,11 +191,11 @@ function resetTempRoles() {
 function getRoleForPlayer(num) {
   // Berechnung von civilianNum aktuell (aktuelle Civilians im Spiel)
 
-  console.log("\n\n -------------------")
-  console.log("player num", playerNumber)
-  console.log("Civ Num", tempCivilianNum)
-  console.log("under Num", tempUnderCoverNum)
-  console.log("mr num", tempMrWhiteNum)
+//   console.log("\n\n -------------------")
+//   console.log("player num", playerNumber)
+//   console.log("Civ Num", tempCivilianNum)
+//   console.log("under Num", tempUnderCoverNum)
+//   console.log("mr num", tempMrWhiteNum)
 
   // Falls num == 1: kein Mr White möglich
   if (num === 1) {
@@ -283,7 +283,7 @@ function print_word_of_player(num) {
 }
 
 function start_ongoing_game() {
-  console.log(playerRoles)
+//   console.log(playerRoles)
   const container = document.querySelector('.player_overview');
   container.innerHTML = '';
 
@@ -409,3 +409,8 @@ function rebuildPlayerBoxes() {
     container.appendChild(wrapper);
   });
 }
+
+
+document.getElementById("see_role").addEventListener("click", () => {
+  console.log("See Role")
+});

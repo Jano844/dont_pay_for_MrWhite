@@ -1,0 +1,20 @@
+{
+  "name": "MrWhite",
+  "short_name": "MrWhite",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078D7",
+  "icons": [
+    {
+      "src": "icons/192Icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "icons/512Icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}
