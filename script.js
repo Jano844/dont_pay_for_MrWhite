@@ -432,11 +432,23 @@ document.getElementById("see_role").addEventListener("click", () => {
         alert(`Dein Wort ist ${playerRoles[index]}`)
 });
 
-document.getElementById().addEventListener("click", () => {
+document.getElementById("vote").addEventListener("click", () => {
     let index = retPlayerRole()
     if (index != -1)
     {
-        console.log(playerRoles[index])
+        if (playerRoles[index] == randomLine[0])
+            alert("Civilian")
+        if (playerRoles[index == randomLine[1]])
+            alert("Undercover")
+        if (playerRoles[index] == "MrWhite")
+        {
+            let input = prompt("Gebe deine Vermutung ab:");
+            input = input.toLowerCase().trim()
+            if (input == randomLine[0])
+                alert("Mr. White won the Game")
+            else
+                alert("Not the right Word")
+        }
     }
 });
 
