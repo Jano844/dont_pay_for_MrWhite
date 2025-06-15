@@ -9,13 +9,7 @@ let tempUnderCoverNum
 let tempMrWhiteNum
 let tempCivilianNum
 
-
-const liste = [
-  ["test", "lol"],
-  ["hallo", "HelloWorld"],
-  ["abc", "def"]
-];
-
+import { liste } from './list.js';
 
 
 function handleNumberSubmit(event) {
