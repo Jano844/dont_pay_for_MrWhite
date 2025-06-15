@@ -1,3 +1,4 @@
+import { liste } from './list.js';
 let playerNumber;
 const playerNames = [];
 let playersCount = 0;
@@ -9,7 +10,8 @@ let tempUnderCoverNum
 let tempMrWhiteNum
 let tempCivilianNum
 
-import { liste } from './list.js';
+let randomLine = []
+
 
 
 function handleNumberSubmit(event) {
@@ -57,7 +59,12 @@ function createPlayerIcons(number) {
 }
 
 function enableNameInput() {
+
+  // To First reset all to default and new
   resetTempRoles()
+  randomLine = liste[Math.floor(Math.random() * liste.length)];
+
+
   const container = document.getElementById('imagesContainer');
   const images = container.querySelectorAll('img');
 
@@ -259,7 +266,6 @@ function getRoleForPlayer(num) {
 function print_word_of_player(num) {
   const role = getRoleForPlayer(num);
   
-  const randomLine = liste[Math.floor(Math.random() * liste.length)];
 //   console.log(randomLine)
   
   let wordToShow;

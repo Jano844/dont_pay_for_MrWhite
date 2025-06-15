@@ -1,4 +1,4 @@
-const liste = [
+export const liste = [
   ["Geige", "Gitarre"],
   ["Blitz", "Donner"],
   ["Bus", "Bahn"],
