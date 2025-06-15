@@ -1,6 +1,7 @@
 import { liste } from './list.js';
 let playerNumber;
-const playerNames = [];
+let playerNames = [];
+const playerRoles = [];
 let playersCount = 0;
 let underCoverNum = 0
 let mrWhiteNum = 0
@@ -268,16 +269,21 @@ function print_word_of_player(num) {
 
   if (role === "MrWhite") {
     wordToShow = "Du bist Mr White";
-  } else if (role === "Civilian") {
+  }
+  else if (role === "Civilian") {
     wordToShow = randomLine[0];
-  } else if (role === "Undercover") {
+  }
+  else if (role === "Undercover") {
     wordToShow = randomLine[1];
   }
+
+  playerRoles.push(wordToShow)
 
   alert(`${role},   ${wordToShow}`);
 }
 
 function start_ongoing_game() {
+  console.log(playerRoles)
   const container = document.querySelector('.player_overview');
   container.innerHTML = '';
 
@@ -320,5 +326,86 @@ function start_ongoing_game() {
     nameElement.appendChild(badge);
 
     container.appendChild(nameElement);
+  });
+}
+
+function rotateList(arr) {
+  const startIndex = Math.floor(Math.random() * arr.length);
+  return arr.slice(startIndex).concat(arr.slice(0, startIndex));
+}
+
+document.getElementById("restart").addEventListener("click", () => {
+
+  document.querySelector('.ongoing_game').style.display = 'none';
+  document.querySelector('.enter_names').style.display = 'block';
+
+  // Reset Temp Roles
+  resetTempRoles()
+  randomLine = liste[Math.floor(Math.random() * liste.length)];
+  playerRoles.length = 0;
+  playerNames = rotateList(playerNames)
+  document.getElementById('imagesContainer').innerHTML = ''
+
+
+  rebuildPlayerBoxes()
+  
+});
+
+
+function rebuildPlayerBoxes() {
+  const container = document.getElementById('imagesContainer');
+  container.innerHTML = ''; // alte Inhalte löschen
+
+  playersCount = 0; // zurücksetzen
+
+  playerNames.forEach((name, i) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    wrapper.style.width = PlayerRectSize.width + 'px';
+    wrapper.style.height = PlayerRectSize.height + 'px';
+
+    const nameElement = document.createElement('div');
+    nameElement.textContent = name;
+    nameElement.style.width = '100%';
+    nameElement.style.height = '100%';
+    nameElement.style.display = 'flex';
+    nameElement.style.alignItems = 'center';
+    nameElement.style.justifyContent = 'center';
+    nameElement.style.borderRadius = '8px';
+    nameElement.style.backgroundColor = '#ddd';
+    nameElement.style.fontWeight = 'bold';
+    nameElement.style.userSelect = 'none';
+    nameElement.style.cursor = 'pointer';
+
+    let alreadyClicked = false;
+
+    nameElement.addEventListener('click', () => {
+      if (alreadyClicked) return;
+
+      alreadyClicked = true;
+      print_word_of_player(i + 1);
+      playersCount += 1;
+
+      // Grüner Punkt oben rechts
+      const badge = document.createElement('div');
+      badge.style.position = 'absolute';
+      badge.style.top = '4px';
+      badge.style.right = '6px';
+      badge.style.width = '12px';
+      badge.style.height = '12px';
+      badge.style.borderRadius = '50%';
+      badge.style.backgroundColor = 'green';
+      wrapper.appendChild(badge);
+
+      // Wenn alle Spieler ihr Wort gesehen haben, Spiel starten
+      if (playersCount === playerNames.length) {
+        document.querySelector('.enter_names').style.display = 'none';
+        document.querySelector('.ongoing_game').style.display = 'block';
+        start_ongoing_game();
+      }
+    });
+
+    wrapper.appendChild(nameElement);
+    container.appendChild(wrapper);
   });
 }
