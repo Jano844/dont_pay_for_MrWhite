@@ -190,7 +190,7 @@ function getRandomLine(list) {
 function getRoleForPlayer(num) {
   // Berechnung von civilianNum aktuell (aktuelle Civilians im Spiel)
 
-
+  console.log("\n\n -------------------")
   console.log("player num", playerNumber)
   console.log("Civ Num", tempCivilianNum)
   console.log("under Num", tempUnderCoverNum)
@@ -232,7 +232,7 @@ function getRoleForPlayer(num) {
     const roles = [];
     if (tempCivilianNum > 0) roles.push("Civilian");
     if (tempUnderCoverNum > 0) roles.push("Undercover");
-    if (tempMrWhiteNum > 0) roles.push("Mr White");
+    if (tempMrWhiteNum > 0) roles.push("MrWhite");
 
     if (roles.length === 0) {
       return "No role available";
