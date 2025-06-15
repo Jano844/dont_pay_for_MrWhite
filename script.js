@@ -412,5 +412,20 @@ function rebuildPlayerBoxes() {
 
 
 document.getElementById("see_role").addEventListener("click", () => {
-  console.log("See Role")
+  let input = prompt("Bitte gib deinen Namen ein:");
+  input = input.toLowerCase().trim()
+  let index = -1
+
+
+  playerNames.forEach((element, i) => {
+    let temp = element.toLowerCase()
+    if (temp == input) {
+        index = i
+    }
+  });
+
+  if (index != -1) {
+    alert(`Dein Wort ist: ${playerRoles[index]}`)
+  }
+
 });
