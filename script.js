@@ -250,7 +250,7 @@ function getRoleForPlayer(num) {
       case "Undercover":
         tempUnderCoverNum -= 1
         break;
-      case "Mr White":
+      case "MrWhite":
         tempMrWhiteNum -= 1 
         break;
     }
@@ -278,5 +278,5 @@ function print_word_of_player(num) {
     wordToShow = randomLine[1];
   }
 
-  alert(`${wordToShow}`);
+  alert(`${role},   ${wordToShow}`);
 }
