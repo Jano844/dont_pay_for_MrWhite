@@ -10,6 +10,9 @@ let tempUnderCoverNum
 let tempMrWhiteNum
 let tempCivilianNum
 
+
+let PlayerRectSize = 0
+
 let randomLine = []
 
 
@@ -86,6 +89,7 @@ function enableNameInput() {
 
       // Größe des Bildes auslesen
       const rect = img.getBoundingClientRect();
+      PlayerRectSize = rect
 
       // Neues Element mit dem Namen erstellen
       const nameElement = document.createElement('div');
@@ -112,6 +116,7 @@ function enableNameInput() {
 
           // Neue Seite einblenden
           document.querySelector('.ongoing_game').style.display = 'block';
+          start_ongoing_game()
       }
     });
   });
@@ -181,12 +186,6 @@ function resetTempRoles() {
     tempUnderCoverNum = underCoverNum
     tempCivilianNum = civilianNum
 }
-
-function getRandomLine(list) {
-  const randomIndex = Math.floor(Math.random() * list.length);
-  return list[randomIndex];
-}
-
 
 function getRoleForPlayer(num) {
   // Berechnung von civilianNum aktuell (aktuelle Civilians im Spiel)
@@ -258,15 +257,12 @@ function getRoleForPlayer(num) {
 
     return role;
   }
-
-  return "No role assigned";
 }
 
 
 function print_word_of_player(num) {
   const role = getRoleForPlayer(num);
   
-//   console.log(randomLine)
   
   let wordToShow;
 
@@ -279,4 +275,50 @@ function print_word_of_player(num) {
   }
 
   alert(`${role},   ${wordToShow}`);
+}
+
+function start_ongoing_game() {
+  const container = document.querySelector('.player_overview');
+  container.innerHTML = '';
+
+
+  let i = 0;
+  playerNames.forEach(name => {
+    i += 1;
+    const trimmedName = name.trim();
+
+    const nameElement = document.createElement('div');
+    nameElement.textContent = trimmedName;
+
+    nameElement.style.position = 'relative';
+    // Deine Styles:
+    nameElement.style.width = PlayerRectSize.width + 'px';
+    nameElement.style.height = PlayerRectSize.height + 'px';
+    nameElement.style.display = 'flex';
+    nameElement.style.alignItems = 'center';
+    nameElement.style.justifyContent = 'center';
+    nameElement.style.borderRadius = '8px';
+    nameElement.style.backgroundColor = '#ddd';
+    nameElement.style.fontWeight = 'bold';
+    nameElement.style.userSelect = 'none';
+
+    const badge = document.createElement('div');
+    badge.textContent = (i).toString();
+    badge.style.position = 'absolute';
+    badge.style.top = '4px';
+    badge.style.right = '6px';
+    badge.style.fontSize = '0.7rem';
+    badge.style.backgroundColor = '#444';
+    badge.style.color = 'white';
+    badge.style.borderRadius = '50%';
+    badge.style.width = '18px';
+    badge.style.height = '18px';
+    badge.style.display = 'flex';
+    badge.style.alignItems = 'center';
+    badge.style.justifyContent = 'center';
+
+    nameElement.appendChild(badge);
+
+    container.appendChild(nameElement);
+  });
 }

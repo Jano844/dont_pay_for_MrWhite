@@ -1,0 +1,38 @@
+.player_overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20% 10% 0 10%;
+  box-sizing: border-box;
+}
+
+.buttonline {
+  display: flex;
+  justify-content: center; /* Zentriert die Buttons horizontal */
+  align-items: center;
+  gap: 1rem; /* Abstand zwischen Buttons */
+  margin-top: 2rem;
+}
+
+.buttonline_buttons {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.buttonline_buttons:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #66BB6A, #388E3C);
+}
+
+.buttonline_buttons:active {
+  transform: scale(0.98);
+}
