@@ -1,0 +1,42 @@
+.game_play_options {
+  padding-top: 15%;
+  display: flex;
+  flex-direction: column;     /* Untereinander */
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+  height: 100vh;              /* Volle Bildschirmhöhe */
+  text-align: center;
+  gap: 1rem;                  /* Abstand zwischen den Elementen */
+}
+
+.option_input {
+  font-size: 1.6rem;       
+  padding: 10px 20px;
+  border-radius: 8px;
+  min-width: 200px;
+  color: white;              
+  background: none;          
+}
+
+
+.option_input_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.option_row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plus_minus {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+}

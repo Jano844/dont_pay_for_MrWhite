@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr White</title>
+    <title>Dont Pay for MrWhite</title>
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/enter_player_number.css">
     <link rel="stylesheet" href="css/enter_names.css">
     <link rel="stylesheet" href="css/ongoing_game.css">
+    <link rel="stylesheet" href="css/game_play_options.css">
 
 </head>
 <body>
@@ -19,6 +20,28 @@
             <form id="numberForm">
                 <input id="enter_num" type="number" name="playerNumber" placeholder="Zahl eingeben" required>
             </form>
+        </div>
+
+        <div class="game_play_options" style="display: none;">
+
+            <p class="option_input" id="playerNum"> </p>
+            <p class="option_input" id="civilianNum">Civilians: </p>
+
+            <div class="option_input_div">
+                <div class="option_row">
+                    <button class="plus_minus" id="Undercover_minus">-</button>
+                    <p class="option_input" id="Undercover">Undercovers:</p>
+                    <button class="plus_minus" id="Undercover_plus">+</button>
+                </div>
+
+                <div class="option_row">
+                    <button class="plus_minus" id="MrWhite_minus">-</button>
+                    <p class="option_input" id="MrWhite">MrWhites:</p>
+                    <button class="plus_minus" id="MrWhite_plus">+</button>
+                </div>
+                <button class="option_input" id="game_play_options_done_button">Done</button>
+            </div>
+
         </div>
         
         <div class="enter_names" style="display: none;">
