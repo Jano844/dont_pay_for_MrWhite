@@ -411,8 +411,8 @@ function rebuildPlayerBoxes() {
 }
 
 
-document.getElementById("see_role").addEventListener("click", () => {
-  let input = prompt("Bitte gib deinen Namen ein:");
+function retPlayerRole() {
+  let input = prompt("Bitte gib einen Namen ein:");
   input = input.toLowerCase().trim()
   let index = -1
 
@@ -423,9 +423,20 @@ document.getElementById("see_role").addEventListener("click", () => {
         index = i
     }
   });
+  return index
+}
 
-  if (index != -1) {
-    alert(`Dein Wort ist: ${playerRoles[index]}`)
-  }
-
+document.getElementById("see_role").addEventListener("click", () => {
+    let index = retPlayerRole()
+    if (index != -1)
+        alert(`Dein Wort ist ${playerRoles[index]}`)
 });
+
+document.getElementById().addEventListener("click", () => {
+    let index = retPlayerRole()
+    if (index != -1)
+    {
+        console.log(playerRoles[index])
+    }
+});
+
