@@ -94,7 +94,7 @@ function enableNameInput() {
       if (trimmedName.length === 0 || nameExists(trimmedName))
         return;
 
-      playerNames[i] = trimmedName;
+      playerNames.push(trimmedName)
 
 
       // Give Player His Word
@@ -442,6 +442,8 @@ function retPlayerRole() {
 }
 
 document.getElementById("see_role").addEventListener("click", () => {
+    console.log(playerNames)
+    console.log(playerRoles)
     let index = retPlayerRole()
     if (index != -1)
         alert(`Dein Wort ist ${playerRoles[index]}`)
@@ -453,10 +455,11 @@ document.getElementById("vote").addEventListener("click", () => {
     {
         if (playerRoles[index] == randomLine[0])
             alert("Civilian")
-        if (playerRoles[index == randomLine[1]])
+        if (playerRoles[index] == randomLine[1])
             alert("Undercover")
         if (playerRoles[index] == "MrWhite")
         {
+            console.log(input)
             let input = prompt("Gebe deine Vermutung ab:");
             input = input.toLowerCase().trim()
             if (input == randomLine[0])
