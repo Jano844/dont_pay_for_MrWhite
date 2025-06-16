@@ -62,6 +62,21 @@ function createPlayerIcons(number) {
   });
 }
 
+function nameExists(name) {
+  let index = -1
+
+  playerNames.forEach((element, i) => {
+    let temp = element.toLowerCase()
+    if (temp == name.toLowerCase()) {
+        index = i
+    }
+  });
+
+  if (index == -1)
+    return false
+  return true
+}
+
 function enableNameInput() {
 
   // To First reset all to default and new
@@ -76,7 +91,7 @@ function enableNameInput() {
     img.addEventListener('click', function handler() {
       const name = prompt(`Name für Spieler ${i + 1} eingeben:`) || '';
       const trimmedName = name.trim();
-      if (trimmedName.length === 0)
+      if (trimmedName.length === 0 || nameExists(trimmedName))
         return;
 
       playerNames[i] = trimmedName;
