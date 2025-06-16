@@ -3,8 +3,25 @@
 .enter_player_number {
   height: 100vh; /* ganzer Bildschirm */
   display: flex;
-  justify-content: center; /* horizontal zentrieren */
+  flex-direction: column;
+ justify-content: flex-start; /* horizontal zentrieren */
   align-items: center;     /* vertikal zentrieren */
+  margin-top: 15%;
+  
+}
+
+.header {
+  text-align: center;
+  margin-top: 5%;
+  color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.player_num_text {
+  text-align: center;
+  margin-bottom: 1%;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #enter_num {

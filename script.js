@@ -474,3 +474,6 @@ document.getElementById("vote").addEventListener("click", () => {
     }
 });
 
+document.getElementById("alwaysButton").addEventListener("click", () => {
+  window.location.reload()
+});
