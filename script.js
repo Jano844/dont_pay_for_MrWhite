@@ -1,7 +1,8 @@
 import { liste } from './list.js';
 let playerNumber;
 let playerNames = [];
-const playerRoles = [];
+let playerRoles = [];
+let playerElements = [];
 let playersCount = 0;
 let underCoverNum = 0
 let mrWhiteNum = 0
@@ -310,6 +311,8 @@ function start_ongoing_game() {
 
     const nameElement = document.createElement('div');
     nameElement.textContent = trimmedName;
+    playerElements.push(nameElement);
+
 
     nameElement.style.position = 'relative';
     // Deine Styles:
@@ -358,6 +361,7 @@ document.getElementById("restart").addEventListener("click", () => {
   resetTempRoles()
   randomLine = liste[Math.floor(Math.random() * liste.length)];
   playerRoles.length = 0;
+  playerElements.length = 0;
   playerNames = rotateList(playerNames)
   document.getElementById('imagesContainer').innerHTML = ''
 
@@ -442,8 +446,6 @@ function retPlayerRole() {
 }
 
 document.getElementById("see_role").addEventListener("click", () => {
-    console.log(playerNames)
-    console.log(playerRoles)
     let index = retPlayerRole()
     if (index != -1)
         alert(`Dein Wort ist ${playerRoles[index]}`)
@@ -457,16 +459,18 @@ document.getElementById("vote").addEventListener("click", () => {
             alert("Civilian")
         if (playerRoles[index] == randomLine[1])
             alert("Undercover")
-        if (playerRoles[index] == "MrWhite")
+        if (playerRoles[index] == "Du bist Mr White")
         {
-            console.log(input)
             let input = prompt("Gebe deine Vermutung ab:");
             input = input.toLowerCase().trim()
-            if (input == randomLine[0])
+            if (input == randomLine[0].toLowerCase())
                 alert("Mr. White won the Game")
             else
                 alert("Not the right Word")
         }
+        playerElements[index].style.backgroundColor = '#f66';
+        playerElements[index].style.opacity = '0.6';
+        playerElements[index].style.pointerEvents = 'none';
     }
 });
 
