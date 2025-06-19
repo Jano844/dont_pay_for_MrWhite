@@ -295,7 +295,7 @@ function print_word_of_player(num) {
 
   playerRoles.push(wordToShow)
 
-  alert(`${role},   ${wordToShow}`);
+  alert(`${wordToShow}`);
 }
 
 function start_ongoing_game() {
